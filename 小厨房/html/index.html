@@ -13,9 +13,8 @@
     <link rel="stylesheet" href="css/index.css">
     <script src="js/vue.min.js"></script>
     <script src="js/indexvue.js"></script>
-    <!--<script src="js/top.js"></script>-->
     <script src="js/jquery-3.3.1.min.js"></script>
-    <!--<script src="js/index.js"></script>-->
+    <script src="commen/commen.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -37,7 +36,6 @@
                         </div>
                         <div class="gongneng1" @click="jimp_html('basket')">
                             <a href="#">
-                                <!-- <span class="iconfont icon-gouwuche"></span> -->
                                 <span class="iconfont icon-briefcase"></span>
                             </a>
                         </div>
@@ -86,25 +84,26 @@
                 </div>
             </div>
             <div class="row">
-                <!--今天推荐盒子-->
+                <!--每日推荐盒子-->
                 <div class="today">
+                    <!--轮播图-->
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
+                        <!-- 对应图片下标 -->
                         <ol class="carousel-indicators">
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                         </ol>
-                        <!-- Wrapper for slides -->
+                        <!-- 要轮播的图片-->
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
-                                <img src="images/zaocan.jpg" alt="...">
+                                <img src="images/zaocan.jpg" alt="..." />
                             </div>
                             <div class="item">
-                                <img src="images/wucan.jpg" alt="...">
+                                <img src="images/wucan.jpg" alt="..." />
                             </div>
                             <div class="item">
-                                <img src="images/wancan.jpg" alt="...">
+                                <img src="images/wancan.jpg" alt="..." />
                             </div>
                         </div>
                     </div>
@@ -194,44 +193,24 @@
 </div>
 <!-- 底部 -->
 <footer >
-    <div class="container-fluid" >
-        <div class="row">
-            <nav class="navbar navbar-default navbar-fixed-bottom" id="foot">
-                <div class="container-fluid">
-                    <div class="bottom_box">
-                        <div @click="jimp_html('index')" class="activetow">
-                            <i class="iconfont icon-home"></i>
-                            <p>小厨房</p>
-                        </div>
-                        <div @click="jimp_html('fair')" >
-                            <!-- <a href="#"> -->
-                            <i class="iconfont icon-shichang"></i>
-                            <p>市集</p>
-                            <!-- </a> -->
-                        </div>
-                        <div @click="jimp_html('collection')" >
-                            <!-- <a href="#"> -->
-                            <i class="iconfont icon-aixin"></i>
-                            <p>收藏</p>
-                            <!-- </a> -->
-                        </div>
-                        <div  @click="jimp_html('mailbox')" >
-                            <!-- <a href="#"> -->
-                            <i class="iconfont icon-xinfeng-kai"></i>
-                            <p>信箱</p>
-                            <!-- </a> -->
-                        </div>
-                        <div  @click="jimp_html('myCenter')" >
-                            <!-- <a href="#"> -->
-                            <i class="iconfont icon-weibiaoti-_huabanfuben"></i>
-                            <p>我</p>
-                            <!-- </a> -->
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom" id="foot">
+        <foot_box :data="list" :active="active"></foot_box>
+        <script type="text/javascript">
+            let foot=new Vue({
+                el:'#foot',
+                data:{
+                    list:[
+                        {text:'小厨房',tubiao:'icon-home',html:'index'},
+                        {text:'市集',tubiao:'icon-shichang',html:'fair'},
+                        {text:'收藏',tubiao:'icon-aixin',html:'collection'},
+                        {text:'信箱',tubiao:'icon-xinfeng-kai',html:'mailbox'},
+                        {text:'我',tubiao:'icon-weibiaoti-_huabanfuben',html:'myCenter'},
+                    ],
+                    active:0,
+                },
+            })
+        </script>
+    </nav>
 </footer>
 
 

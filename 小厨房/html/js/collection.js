@@ -43,13 +43,6 @@ $(function () {
                                 </p>
                            </div>
                            <new-btn :mes="index" :data="sujv"></new-btn>
-                           <!--<div class="list_share">-->
-                                  <!--<button v-if="!x.rec" class="iconfont icon-diandian" @click="x.rec =!x.rec"></button>-->
-                                  <!--<div v-if="x.rec">-->
-                                        <!--<button class="del_box" @click="del(index)">移除</button>-->
-                                        <!--<button class="cancel" @click="x.rec =!x.rec">取消</button>-->
-                                  <!--</div>-->
-                           <!--</div>-->
                         </div>
                     </div>
             `,
@@ -61,11 +54,6 @@ $(function () {
                     ],
                 };
             },
-            // methods:{
-            //     del:function (index) {
-            //         this.sujv.splice(index,1);
-            //     }
-            // },
         });
         Vue.component('coll-浏览记录', {
             template:`
@@ -133,20 +121,4 @@ $(function () {
                 },
             }
         });
-
-
-
-
-
-
-        //底部页面跳转
-        let foot=new Vue({
-            el:'#foot',
-            methods:{
-                jimp_html:function(message){
-                    location=message;
-                },
-            }
-        })
-
 }) ;

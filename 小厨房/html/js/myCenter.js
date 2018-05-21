@@ -94,16 +94,6 @@
             }
         }
     });
-
-    //底部页面跳转
-    let foot=new Vue({
-        el:'#foot',
-        methods:{
-            jimp_html:function(message){
-                location=message;
-            },
-        }
-    });
     let event=new Vue();
     Vue.component('outuser',{
         data(){

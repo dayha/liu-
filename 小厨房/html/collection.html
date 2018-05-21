@@ -17,8 +17,10 @@
     <link rel="stylesheet" href="css/collection.css">
     <!--加载vue框架库-->
     <script src="js/vue.min.js"></script>
+    <!--加载vue公共主键-->
+    <script src="commen/commen.js"></script>
     <!--加载jquery库-->
-    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
 
     <script src="js/collection.js"></script>
     <!--加载bootstrap插件-->
@@ -71,44 +73,24 @@
 </div>
 <!-- 底部 -->
 <footer >
-    <div class="container-fluid" >
-        <div class="row">
-            <nav class="navbar navbar-default navbar-fixed-bottom" id="foot">
-                <div class="container-fluid">
-                    <div class="bottom_box">
-                        <div @click="jimp_html('index')" >
-                            <i class="iconfont icon-home"></i>
-                            <p>小厨房</p>
-                        </div>
-                        <div @click="jimp_html('fair')" >
-                            <!-- <a href="#"> -->
-                            <i class="iconfont icon-shichang"></i>
-                            <p>市集</p>
-                            <!-- </a> -->
-                        </div>
-                        <div @click="jimp_html('collection')" class="activetow">
-                            <!-- <a href="#"> -->
-                            <i class="iconfont icon-aixin"></i>
-                            <p>收藏</p>
-                            <!-- </a> -->
-                        </div>
-                        <div  @click="jimp_html('mailbox')" >
-                            <!-- <a href="#"> -->
-                            <i class="iconfont icon-xinfeng-kai"></i>
-                            <p>信箱</p>
-                            <!-- </a> -->
-                        </div>
-                        <div  @click="jimp_html('myCenter')" >
-                            <!-- <a href="#"> -->
-                            <i class="iconfont icon-weibiaoti-_huabanfuben"></i>
-                            <p>我</p>
-                            <!-- </a> -->
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom" id="foot">
+        <foot_box :data="list" :active="active"></foot_box>
+        <script type="text/javascript">
+            let foot=new Vue({
+                el:'#foot',
+                data:{
+                    list:[
+                        {text:'小厨房',tubiao:'icon-home',html:'index'},
+                        {text:'市集',tubiao:'icon-shichang',html:'fair'},
+                        {text:'收藏',tubiao:'icon-aixin',html:'collection'},
+                        {text:'信箱',tubiao:'icon-xinfeng-kai',html:'mailbox'},
+                        {text:'我',tubiao:'icon-weibiaoti-_huabanfuben',html:'myCenter'},
+                    ],
+                    active:2,
+                },
+            })
+        </script>
+    </nav>
 </footer>
 </body>
 </html>

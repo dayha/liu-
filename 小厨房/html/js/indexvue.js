@@ -23,16 +23,6 @@
                 {name:"排行榜",pic:'./images/smallpic/rankings.png',html:''},
                 {name:"菜谱分类",pic:'./images/smallpic/caipu.png',html:'foodclassify'},
             ],
-            itemstow:[
-                {name:"烘焙",pic:'./images/smallpic/hongpei.png'},
-                {name:"水果蔬菜",pic:'./images/smallpic/flaoer.png'},
-                {name:"器具",pic:'./images/smallpic/rankings.png'},
-                {name:"领卷",pic:'./images/smallpic/lingjuan.png'},
-                {name:"方便食品",pic:'./images/smallpic/cadao.png'},
-                {name:"进口食品",pic:'./images/smallpic/feiji.png'},
-                {name:"时令鲜食",pic:'./images/smallpic/timefoot.png'},
-                {name:"全部分类",pic:'./images/smallpic/quanbu.png'},
-            ],
             leble:[
                 {title:"本周食材"},
                 {title:"厨studio课堂"},
@@ -56,16 +46,6 @@
 
 
     });
-
-    //底部页面跳转
-    let foot=new Vue({
-        el:'#foot',
-        methods:{
-            jimp_html:function(message){
-                location=message;
-            },
-        }
-    })
     let top=new Vue({
         el:'#Top',
         methods:{

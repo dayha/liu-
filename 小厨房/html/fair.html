@@ -17,17 +17,17 @@
     <link rel="stylesheet" href="css/fair.css">
     <!--加载vue框架库-->
     <script src="js/vue.min.js"></script>
-    <!--加载vue自定义数据-->
-    <script src="js/indexvue.js"></script>
+    <!--加载vue公共主键-->
+    <script src="commen/commen.js"></script>
     <!--加载jquery库-->
-    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <!--加载bootstrap插件-->
     <script src="js/bootstrap.min.js"></script>
 
 
 </head>
 <body>
-
+<header></header>
 <div id="Top">
     <div class="container-fluid">
         <div class="row">
@@ -54,20 +54,41 @@
         </div>
     </div>
 </div>
+<script>
+    new Vue({
+        el:'#Top',
+        methods:{
+            jimp_html:function(message){
+                location=message;
+            },
+            jimp_html2:function(message){
+                location=message;
+            },
+        }
+    })
+</script>
 <div class="myApp1">
     <div id="miam">
         <div class="container-fluid">
-            <div class="row">
-                <div id="classbox" class="nvigaTion">
-                    <template>
-                        <div class="classnav" v-for="x in itemstow" >
-                            <div>
-                                <img :src='x.pic' alt="">
-                            </div>
-                            <p>{{x.name}}</p>
-                        </div>
-                    </template>
-                </div>
+            <div class="row" id="one">
+                <nve_box :itemstow="itemstow"></nve_box>
+                <script>
+                   let nvr= new Vue({
+                        el:'#one',
+                        data:{
+                            itemstow:[
+                                {name:"烘焙",pic:'./images/smallpic/hongpei.png'},
+                                {name:"水果蔬菜",pic:'./images/smallpic/flaoer.png'},
+                                {name:"器具",pic:'./images/smallpic/rankings.png'},
+                                {name:"领卷",pic:'./images/smallpic/lingjuan.png'},
+                                {name:"方便食品",pic:'./images/smallpic/cadao.png'},
+                                {name:"进口食品",pic:'./images/smallpic/feiji.png'},
+                                {name:"时令鲜食",pic:'./images/smallpic/timefoot.png'},
+                                {name:"全部分类",pic:'./images/smallpic/quanbu.png'},
+                            ],
+                        }
+                    })
+                </script>
             </div>
             <div class="row">
                 <!--新人礼包-->
@@ -283,44 +304,24 @@
 </div>
 <!-- 底部 -->
 <footer >
-    <div class="container-fluid" >
-        <div class="row">
-            <nav class="navbar navbar-default navbar-fixed-bottom" id="foot">
-                <div class="container-fluid">
-                    <div class="bottom_box">
-                        <div @click="jimp_html('index')" >
-                            <i class="iconfont icon-home"></i>
-                            <p>小厨房</p>
-                        </div>
-                        <div @click="jimp_html('fair')" class="activetow">
-                            <!-- <a href="#"> -->
-                            <i class="iconfont icon-shichang"></i>
-                            <p>市集</p>
-                            <!-- </a> -->
-                        </div>
-                        <div @click="jimp_html('collection')" >
-                            <!-- <a href="#"> -->
-                            <i class="iconfont icon-aixin"></i>
-                            <p>收藏</p>
-                            <!-- </a> -->
-                        </div>
-                        <div  @click="jimp_html('mailbox')" >
-                            <!-- <a href="#"> -->
-                            <i class="iconfont icon-xinfeng-kai"></i>
-                            <p>信箱</p>
-                            <!-- </a> -->
-                        </div>
-                        <div  @click="jimp_html('myCenter')" >
-                            <!-- <a href="#"> -->
-                            <i class="iconfont icon-weibiaoti-_huabanfuben"></i>
-                            <p>我</p>
-                            <!-- </a> -->
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom" id="foot">
+        <foot_box :data="list" :active="active"></foot_box>
+        <script type="text/javascript">
+            let foot=new Vue({
+                el:'#foot',
+                data:{
+                    list:[
+                        {text:'小厨房',tubiao:'icon-home',html:'index'},
+                        {text:'市集',tubiao:'icon-shichang',html:'fair'},
+                        {text:'收藏',tubiao:'icon-aixin',html:'collection'},
+                        {text:'信箱',tubiao:'icon-xinfeng-kai',html:'mailbox'},
+                        {text:'我',tubiao:'icon-weibiaoti-_huabanfuben',html:'myCenter'},
+                    ],
+                    active:1,
+                },
+            })
+        </script>
+    </nav>
 </footer>
 
 
